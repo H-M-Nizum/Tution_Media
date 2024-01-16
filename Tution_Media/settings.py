@@ -29,6 +29,7 @@ SECRET_KEY = 'django-insecure-_pujv=ujtzg(zpe%9m#$=$40&!z3^adv-ryoq6w14hj4^w6=ou
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
+CSRF_TRUSTED_ORIGINS = ['https://lifetech-tution.onrender.com','https://*.127.0.0.1']
 
 
 # Application definition
