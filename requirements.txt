@@ -1,0 +1,13 @@
+asgiref
+crispy-bootstrap5
+Django
+django-crispy-forms
+django-environ
+django-filter
+django-widget-tweaks
+djangorestframework
+Markdown
+pillow
+pytz
+sqlparse
+tzdata

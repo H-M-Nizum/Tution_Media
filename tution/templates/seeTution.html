@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}tution page{% endblock title %}
+
+{% block content %}
+
+<div class="container text-center">
+    <a  class="btn btn-primary m-4" href="{% url 'seeTution' %}">ALL</a>
+    {% for i in tutionclass %}
+ 
+        <a href="{% url 'class_slug' i.slug %}" class="btn btn-primary m-4">{{i.name}}</a>
+
+    {% endfor %}
+</div> 
+
+<div class="container mb-5">
+        <button class="px-5 py-2 mb-4 btn btn-success text-white">{{data | length}} result found</button>
+        <div class="row gap-5">
+            {% for i in data %}
+            <div class="card border border-primary p-3" style="width: 18rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                <div class="card-header">
+                  <h3>Tution ID #{{i.id}}</h3>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Class || 
+                    {% for se in i.tutionclass.all %}
+                        {{se}}
+                    {% endfor %}
+                  </li>
+                  <li class="list-group-item">Subject || {{i.subject}}</li>
+                  <li class="list-group-item">Weekly {{i.weekly_day}} days</li>
+                  <li class="list-group-item">Daily {{i.daily_time}} Hour</li>
+                  <li class="list-group-item">Location || {{i.location}} </li>
+                  <li class="list-group-item">Mounthly Fee {{i.fee}}TK</li>
+                  {% if i.tution_status == "Running"%}
+                  <li class="list-group-item">Tution Status  <button class="btn btn-info">{{i.tution_status}}</button></li>
+                  {% else %}
+                  <li class="list-group-item">Tution Status  <button class="btn btn-danger">{{i.tution_status}}</button></li>
+                  {% endif %}
+                  
+                  {% if request.user.is_superuser %}
+                  <li class="list-group-item text-center">
+                    
+                    <a class="btn btn-success" href="{% url 'application' i.id %}">Application</a>
+                    <a class="btn btn-success" href="{% url 'edit_tution' i.id %}">Edit</a>
+                  </li>
+                  <li class="list-group-item text-center">
+                    <a class="btn btn-danger" href="{% url 'delete_tution' i.id %}">Delete</a>
+                  </li>
+                  {% else %}
+                  <li class="list-group-item text-center">
+                  <a class="btn btn-success" href="{% url 'tution_reviews' i.id %}">View Review</a>
+                  </li>
+                  <li class="list-group-item text-center">
+                  <a class="btn btn-success" href="{% url 'apply_tution' i.id %}">Apply Heare</a>
+                  </li>
+                {% endif %}
+
+                </ul>
+              </div>
+            {% endfor %}
+                
+        </div>
+    </div>
+    
+
+</div>
+
+
+
+{% endblock content %}

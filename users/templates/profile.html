@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}Profile{% endblock title %}
+
+{% block content %}
+<div class="container mt-4">
+  <div >
+    <div class="card text-center">
+      <div class="card-header">
+    
+        <h2>{{user}}</h2>
+       
+      </div>
+      <div class="card-body">
+        
+        <p style="text-align: center; color:tomato">First Name - {{data.user.first_name}}</p>
+        <p style="text-align: center; color:tomato"> Last Name - {{data.user.last_name}}</p>
+        <p style="text-align: center; color:tomato">Email - {{data.user.email}}</p>
+        <p style="text-align: center; color:tomato">Phone Number - {{data.mobile_no}}</p>
+        <p style="text-align: center; color:tomato">Educational Qualification - {{data.educational_qualification}}</p>
+
+      </div>
+      <div class="card-footer text-body-secondary">
+        
+      </div>
+    </div>
+  </div>
+    
+<div class="mt-5">
+  <hr>
+</div>
+
+ <div class="">
+    <table class="table">
+        <thead>
+          <tr>
+            
+            <th scope="col">Tution ID</th>
+            <th scope="col">Apply Time</th>
+            <th scope="col">Subject</th>
+            <th scope="col">Tution Location</th>
+            <th scope="col">Fee</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for i in application %}
+            <tr>
+                <th scope="row">{{i.tution.id}}</th>
+                <th scope="row">{{i.created_time}}</th>
+                <th scope="row">{{i.tution.subject}}</th>
+                <th scope="row">{{i.tution.location}}</th>
+                <th scope="row">{{i.tution.fee}}</th>
+                <td><a class="btn btn-info" href="{% url 'review' i.tution.id %}">Reviews </a></td>
+                
+              </tr>
+    
+            {% endfor %}
+          
+        </tbody>
+      </table>
+</div>
+
+{% endblock content %}

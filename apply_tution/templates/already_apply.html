@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Delete page{% endblock title %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="container text-center mt-5">
+        <div>
+            <h1>You Already Apply this Tution!!!</h1>
+        </div>
+
+        <div>
+            <img src="{% static "opps.jpg" %}" alt="opps">
+        </div>
+    </div>
+{% endblock content %}
