@@ -1,14 +1,18 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block title %}Profile{% endblock title %}
 
 {% block content %}
-<div class="container mt-4">
- <div class="">
-    <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Applicant</th>
+
+<div class="text-center mt-3">
+  <h3>Applications for Tution ID #{{tution.id}}</h3>
+</div>
+<div class="bg-body-secondary pb-4 mt-5 mb-5">
+  {% if applications %}
+  <table class="w-100 bg-body-secondary">
+      <thead>
+        <tr style="padding-left: 50px;">
+            <th style="padding-left: 50px;" scope="col">Applicant</th>
             <th scope="col">Applicant Education</th>
             <th scope="col">Apply time</th>
             <th scope="col">Applicant MObile No</th>
@@ -19,7 +23,7 @@
         <tbody>
             {% for i in applications %}
             <tr>
-                <th scope="row">{{i.applicant}}</th>
+                <th style="padding-left: 50px;" scope="row">{{i.applicant}}</th>
                 <td>{{i.applicant.educational_qualification}}</td>
                 <td>{{i.created_time}}</td>
                 <td>{{i.applicant.mobile_no}}</td>
@@ -31,7 +35,15 @@
             {% endfor %}
           
         </tbody>
-      </table>
+    </table>
+    {% else %}
+    <div class="text-center mt-5 mb-5">
+      <img style="mix-blend-mode: color-burn;" src="{% static 'opps.jpg' %}" alt="opps">
+    </div>
+    <div>
+        <p class="text-center">Applications Are Not Available!</p>
+    </div>
+    {% endif %}
 </div>
 
 {% endblock content %}

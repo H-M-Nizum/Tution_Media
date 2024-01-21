@@ -1,27 +1,20 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block title %}Profile{% endblock title %}
 
 {% block content %}
 <div class="container mt-4">
-  <div >
-    <div class="card text-center">
-      <div class="card-header">
-    
-        <h2>{{user}}</h2>
-       
+    <div class="row d-flex justify-content-center align-items-center mt-5" >
+      <div style="text-align: center;" class="col">
+        <img style="width: 250px; height: 250px; border-radius: 130px; mix-blend-mode: color-burn;" src="{% static 'profile.png' %}" alt="patient">
+        <h5  class="m-4">{{user.username}}</h5>
       </div>
-      <div class="card-body">
-        
-        <p style="text-align: center; color:tomato">First Name - {{data.user.first_name}}</p>
-        <p style="text-align: center; color:tomato"> Last Name - {{data.user.last_name}}</p>
-        <p style="text-align: center; color:tomato">Email - {{data.user.email}}</p>
-        <p style="text-align: center; color:tomato">Phone Number - {{data.mobile_no}}</p>
-        <p style="text-align: center; color:tomato">Educational Qualification - {{data.educational_qualification}}</p>
+      <div class="col"> 
+        <p style="text-align: center;">Name - {{data.user.first_name}} {{data.user.last_name}}</p>
+        <p style="text-align: center;">Email - {{data.user.email}}</p>
+        <p style="text-align: center;">Phone Number - {{data.mobile_no}}</p>
+        <p style="text-align: center;">Educational Qualification - {{data.educational_qualification}}</p>
 
-      </div>
-      <div class="card-footer text-body-secondary">
-        
       </div>
     </div>
   </div>
@@ -30,35 +23,33 @@
   <hr>
 </div>
 
- <div class="">
-    <table class="table">
-        <thead>
-          <tr>
-            
-            <th scope="col">Tution ID</th>
-            <th scope="col">Apply Time</th>
-            <th scope="col">Subject</th>
-            <th scope="col">Tution Location</th>
-            <th scope="col">Fee</th>
-            <th scope="col">Action</th>
-          </tr>
-        </thead>
-        <tbody>
-            {% for i in application %}
-            <tr>
-                <th scope="row">{{i.tution.id}}</th>
-                <th scope="row">{{i.created_time}}</th>
-                <th scope="row">{{i.tution.subject}}</th>
-                <th scope="row">{{i.tution.location}}</th>
-                <th scope="row">{{i.tution.fee}}</th>
-                <td><a class="btn btn-info" href="{% url 'review' i.tution.id %}">Reviews </a></td>
-                
+<div class="bg-body-secondary pb-4">
+  <div class="table-responsive">
+      <table class="table table-striped table-hover w-100 bg-body-secondary">
+          <thead>
+              <tr style="padding-left: 50px;">
+                  <th style="padding-left: 50px;" scope="col">Tution ID</th>
+                  <th scope="col">Apply Time</th>
+                  <th scope="col">Subject</th>
+                  <th scope="col">Tution Location</th>
+                  <th scope="col">Fee</th>
+                  <th scope="col">Action</th>
               </tr>
-    
-            {% endfor %}
-          
-        </tbody>
+          </thead>
+          <tbody>
+              {% for i in application %}
+                  <tr>
+                      <th style="padding-left: 50px;" scope="row">{{i.tution.id}}</th>
+                      <td>{{i.created_time}}</td>
+                      <td>{{i.tution.subject}}</td>
+                      <td>{{i.tution.location}}</td>
+                      <td>{{i.tution.fee}}</td>
+                      <td><a class="btn btn-info" href="{% url 'review' i.tution.id %}">Reviews </a></td>
+                  </tr>
+              {% endfor %}
+          </tbody>
       </table>
+  </div>
 </div>
 
 {% endblock content %}

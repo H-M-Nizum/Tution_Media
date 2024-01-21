@@ -1,0 +1,41 @@
+
+.link_cont {
+   
+    height: 10vh;
+    display: flex;
+    margin-bottom: 50px;
+    /* justify-content: center; */
+    /* align-items: center; */
+
+}
+
+.link {
+    height: 60px;
+    width: 60px;
+    background-color: #caf7e3;
+    border-radius: 30px;
+    text-align: center;
+    margin: 3px;
+    line-height: 70px;
+}
+
+a i {
+    transition: all 0.3s linear;
+}
+
+a:hover i {
+    transform: scale(1.5);
+}
+
+
+.facebook:hover {
+    color: blue;
+}
+
+
+.twitter:hover {
+    color: #00adb5;
+}
+.linkedin:hover {
+    color: #04009a;
+}

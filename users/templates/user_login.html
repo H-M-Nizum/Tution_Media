@@ -1,33 +1,72 @@
 {% extends "base.html" %}
+{% load static %}
 {% load crispy_forms_tags %}
 {% block title %}Login{% endblock title %}
 
+
 {% block content %}
 
-<div class="container">
-    <h1>This is login page</h1>
-    <form method="post" novalidate>
-        <!-- {{form | crispy}} -->
-        {% csrf_token %}
+<head>
+    <style>
+        #id_username{
+            background-color: rgb(188, 192, 192);
+            padding: 10px;
+            border-radius: 30px;  
+        }
+        #id_username:hover{
+            background-color: rgb(252, 249, 249);
+        }
+        #id_password{
+            background-color: rgb(188, 192, 192);
+            padding: 10px;
+            border-radius: 30px;
+            
+        }
+        #id_password:hover{
+            background-color: rgb(252, 249, 249);
+        }
+    </style>
+</head>
 
-        <!-- if unauthorize user try for login show a error message -->
-        {% if form.non_field_errors %}
-        {% for er in form.non_field_errors %}
-            <p class="bg-danger text-white p-3">{{er}}</p>
-        {% endfor %}
-        {% endif %}
 
+<div  style=" border-radius: 50px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" class="container  col-md-4  pt-3 pb-3 bg-dark-subtle mt-4 mb-4">
 
-        {% for fm in form %}
-        {{fm.label_tag}}
-        {{fm}}
-        {{fm.errors | striptags}}
-        <br>
-        {% endfor %}
-        <br>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-
+    <div class="row d-flex justify-content-center align-items-center mt-2">
+        <div class="text-center">
+            <img style="mix-blend-mode: color-burn; width: 150px;" class="img-fluid " src="{% static 'logicon.jpg' %}" alt="Login icon">
+            <h3 class="text-center">Login</h3>
+            <hr>
+          </div>
+          <div class="">
+            <div class="pb-md-5" style=" margin: auto;">
+                <form class="ps-md-3 pe-md-3" method="post" novalidate>
+                    <!-- {{form | crispy}} -->
+                    {% csrf_token %}
+            
+                    <!-- if unauthorize user try for login show a error message -->
+                    {% if form.non_field_errors %}
+                    {% for er in form.non_field_errors %}
+                        <p class="bg-danger text-white p-3">{{er}}</p>
+                    {% endfor %}
+                    {% endif %}
+            
+            
+                    {% for fm in form %}
+                    {{fm.label_tag}}
+                    {{fm}}
+                    {{fm.errors | striptags}}
+                  
+                    {% endfor %}
+                    <br>
+                    <button style="width: 100%; padding: 10px; border-radius: 30px;" type="submit" class="btn btn-primary">Login</button>
+                </form>
+            </div>
+            
+        
+          </div>
+    </div>
+    
+    
 </div>
 
 

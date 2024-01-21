@@ -3,16 +3,15 @@
 {% block title %}review page{% endblock title %}
 {% load crispy_forms_tags %}
 {% block content %}
-<div class="container pb-5" style="width: 50%; margin: auto">
-    <h2>Reviews for {{ tution.subject }}</h2>
+<div class="container pb-5 mt-5" style="width: 50%; margin: auto">
+    <h2>Reviews for #{{tution.id}} {{ tution.subject }}</h2>
     {% if reviews %}
         <ul>
             {% for review in reviews %}
                 <li>
+                    <p>Reviewer: {{ review.reviewer.user.first_name }}  {{ review.ratting }}</p>
                     <p>{{ review.body }}</p>
-                    <p>Rating: {{ review.ratting }}</p>
-                    <p>Reviewer: {{ review.reviewer.user.first_name }}</p>
-                    <p>Created Time: {{ review.created_time }}</p>
+                    <p> {{ review.created_time }}</p>
                 </li>
             {% endfor %}
         </ul>

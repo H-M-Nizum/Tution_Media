@@ -4,6 +4,7 @@ from .models import ApplicationModel
 from django.contrib.auth.decorators import login_required
 from tution.models import TutionModel
 from django.contrib.auth.decorators import user_passes_test
+from django.contrib import messages
 
 @login_required
 def apply_tution(request, tution_id):
@@ -16,6 +17,10 @@ def apply_tution(request, tution_id):
     if existing_application:
         # when the user has already applied to this tuition
         return render(request, 'already_apply.html')
+    else:
+         messages.success(
+                request,
+                f' Congratulations . Successfully Apply for this tution.')
 
     # Create a new application
     ApplicationModel.objects.create(applicant=applicant, tution=tution)
@@ -29,7 +34,7 @@ def apply_tution(request, tution_id):
 def admin_all_applications_views(request, tution_id):
     tution = get_object_or_404(TutionModel, pk=tution_id)
     applications = ApplicationModel.objects.filter(tution=tution)
-    return render(request, 'all_applications.html', {'applications': applications})
+    return render(request, 'all_applications.html', {'applications': applications, 'tution': tution})
 
 
 from django.template.loader import render_to_string
