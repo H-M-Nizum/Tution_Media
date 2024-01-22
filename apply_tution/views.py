@@ -15,8 +15,10 @@ def apply_tution(request, tution_id):
     existing_application = ApplicationModel.objects.filter(applicant=applicant, tution=tution).first()
 
     if existing_application:
-        # when the user has already applied to this tuition
-        return render(request, 'already_apply.html')
+        messages.warning(
+                request,
+                f' You Already Apply this Tution!!!')
+
     else:
          messages.success(
                 request,

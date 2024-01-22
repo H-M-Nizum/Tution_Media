@@ -25,6 +25,7 @@ from django.contrib.auth import get_user_model
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 
+from django.contrib import messages
 
 # Create your views here.
 # class UserRegistrationViews(FormView):
@@ -98,13 +99,16 @@ class Userloginviews(LoginView):
     
     def get_success_url(self):
         if self.request.user.is_active:
+            messages.success(self.request, 'Login Successfully. Welcome Back!')
             return reverse_lazy('home')
         else:
+            messages.error(self.request, 'Registration first. Then try login')
             return reverse_lazy('register')
     
 class userlogoutview(View):
     def get(self, request):
         logout(request)
+        messages.success(self.request, 'Logout Successfully. See you later!')
         return redirect('home')
 
 
