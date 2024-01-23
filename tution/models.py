@@ -46,6 +46,7 @@ class ReviewModel(models.Model):
     
 
 class TeacherModel(models.Model):
+    image = models.ImageField(upload_to='tution/images/', blank = True,null = True)
     code = models.IntegerField()
     fullname = models.CharField(max_length=100)
     university = models.CharField(max_length=150)

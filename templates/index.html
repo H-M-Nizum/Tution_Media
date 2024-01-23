@@ -8,40 +8,47 @@
 
 
 
+
 <div class="container ">
   <div class="row mt-5 mb-5">
-    <div class="col-lg-6 col-md-12"><div id="carouselExample" class="carousel slide ">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="{% static 'images/t5.png' %}" class="d-block w-100" alt="...">
+    <div class="col-lg-6 col-md-12">
+      <div class="swiffy-slider slider-item-ratio slider-item-ratio-16x9 slider-nav-animation slider-nav-animation-fadein" id="swiffy-animation">
+        <ul class="slider-container" id="container1">
+          <li id="slide1" class=""><img src="{% static 'images/t4.webp' %}" alt="..." loading="lazy"></li>
+          <li id="slide2" class=""><img src="{% static 'images/t5.png' %}" alt="..." loading="lazy"></li>
+          <li id="slide3" class=""><img src="{% static 'images/t6.webp' %}" alt="..." loading="lazy"></li>
+          <li id="slide4" class=""><img src="{% static 'images/t7.jpg' %}" alt="..." loading="lazy"></li>
+          <li id="slide5" class="slide-visible"><img src="{% static 'images/t8.jpg' %}" alt="..." loading="lazy"></li>
+          <li id="slide6" class=""><img src="{% static 'images/t6.webp' %}" alt="..." loading="lazy"></li>
+        </ul>
+    
+        <button type="button" class="slider-nav" aria-label="Go to previous"></button>
+        <button type="button" class="slider-nav slider-nav-next" aria-label="Go to next"></button>
+    
+        <div class="slider-indicators">
+            <button aria-label="Go to slide" class=""></button>
+            <button aria-label="Go to slide" class=""></button>
+            <button aria-label="Go to slide" class=""></button>
+            <button aria-label="Go to slide" class=""></button>
+            <button aria-label="Go to slide" class="active"></button>
+            <button aria-label="Go to slide" class=""></button>
         </div>
-        <div class="carousel-item ">
-          <img src="{% static 'images/t4.webp' %}" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="{% static 'images/t5.png' %}" class="d-block w-100" alt="...">
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
     </div>
-  </div>
+    </div>
+  
     <div class="col-lg-6 col-md-12 text-center mt-5">
       <h2 class="text-danger">LOOKING FOR EXPERT TUTOR??</h2>
       <h3><a href="{% url 'teachers' %}">Click here looking for expert tutor</a></h3>
       <br>
       <h1 style="color: #263238;">Recent 65 Tuition</h1>
       <h5> <a href="{% if request.user.is_authenticated %}{% url 'seeTution' %}
-        {% else %}{% url 'home' %}{% endif %}">Find tuition that fits you better</a></h5>
+        {% else %}{% url 'login' %}{% endif %}">Find tuition that fits you better</a></h5>
     </div>
   </div>
 </div>
+
+
+
 {% include "service.html" %}
 
   {% include "about.html" %}

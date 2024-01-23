@@ -6,53 +6,47 @@
 {% block content %}
 
 
-<main id="teachers">
-    <section class="no-padding-top">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 mb-5">
-                    <br>
-                    <h5>Most Active <strong>10</strong> Teachers</h5>
+
+<div class="container">
+    <div class="mb-5">
+        <br>
+        <h5>Most Active <strong>10</strong> Teachers</h5>
+    </div>
+    {% for i in data %}
+        <div class="card mb-3 mt-5" >
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <img src="{{i.image.url}}" class="img-fluid rounded-start h-100" alt="...">
                 </div>
-                {% for i in data %}
-                
 
-                <div class="row">
-                    <!-- Resume detail-->
-                    <div style="background-color: white; border-radius: 20px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" class="col-sm-12 col-md-12 p-5 mb-3">
-                            <header class="d-flex">
-                                <div>
-                                    <img style="height: 40px; width: 40px; border-radius: 20px;" class="resume-avatar" src="{% static 'images/teacher.jpg' %}">
-                                </div>
-                                <div class="">
-                                    <h4 style="color:green">Teacher Code : {{i.code}}</h4>
-                                    <h4 style="color:green">{{i.fullname}}</h4>
-                                    <h5><b>{{i.university}}</b>({{i.sub}})</h5>
-                                </div>
-                            </header>
-                            <div class="item-body ps-5">
-                                <p>Expected Location : {{i.ex_location}}</p>
-                                <p> Expected Class(s): {{i.ex_class}}</p>
-                            </div>
-                            <footer class="ps-5">
-                                <ul class="details list-unstyled cols-2 d-flex gap-5">
-                                    <li>Living Place :
-                                        <i class="fa fa-map-marker"> </i><span>  {{i.living_place}}</span>
-                                    </li>
-                                    <li>
-                                        <i class="fa-solid fa-money-bill"></i><span>Expected Salary : {{i.ex_salary}}</span>
-                                    </li>
-                                </ul>
+                <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{i.fullname}}</h5>
+                    <h5><b>{{i.university}}</b>({{i.sub}})</h5>
+                    <br>
+                    <br>
+                    <p>Expected Location : {{i.ex_location}}</p>
+                    <p> Expected Class(s): {{i.ex_class}}</p>
 
-                            </footer>
+                        <p class="card-text"> <ul class="details list-unstyled cols-2 d-flex gap-5">
+                        <li>Living Place :
+                            <i class="fa fa-map-marker"> </i><span>  {{i.living_place}}</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-money-bill"></i><span>Expected Salary : {{i.ex_salary}}</span>
+                        </li>
+                    </ul></p>
                     </div>
                 </div>
-                {% endfor %}
-    </section>
-    
-
-</main>
-
+                        
+                        
+            </div>
+        </div>
+               
+    {% endfor %}
+            
+</div>
+  
 
 
 {% endblock content %}
