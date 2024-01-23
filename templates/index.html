@@ -34,14 +34,14 @@
   </div>
     <div class="col-lg-6 col-md-12 text-center mt-5">
       <h2 class="text-danger">LOOKING FOR EXPERT TUTOR??</h2>
-      <h3><a href="{% url 'teachers' %}">Click here to submit your Tutor requirements</a></h3>
+      <h3><a href="{% url 'teachers' %}">Click here looking for expert tutor</a></h3>
       <br>
       <h1 style="color: #263238;">Recent 65 Tuition</h1>
-      <h5> <a href="{% url 'seeTution' %}">Find tuition that fits you better</a></h5>
+      <h5> <a href="{% if request.user.is_authenticated %}{% url 'seeTution' %}
+        {% else %}{% url 'home' %}{% endif %}">Find tuition that fits you better</a></h5>
     </div>
   </div>
 </div>
-
 {% include "service.html" %}
 
   {% include "about.html" %}
