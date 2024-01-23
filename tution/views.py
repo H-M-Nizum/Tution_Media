@@ -25,6 +25,10 @@ def seeTution(request, class_slug = None):
     tutionclass = models.TutionClassModel.objects.all()
     return render(request, 'seeTution.html', {'data':data, 'tutionclass': tutionclass})
 
+def seeTeacher(request):
+    data = models.TeacherModel.objects.all()
+    return render(request, 'teachers.html', {'data':data})
+
 class EditTutionView(UpdateView):
     model = models.TutionModel
     form_class = forms.EditTutionForm

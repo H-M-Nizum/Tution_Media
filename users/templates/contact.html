@@ -1,40 +1,56 @@
 {% extends "base.html" %}
 {% load static %}
 {% load crispy_forms_tags %}
-{% block title %}Login{% endblock title %}
-
-
+{% block title %}Registration{% endblock title %}
 {% block content %}
+
 
 <head>
     <style>
-        #id_username{
+        #id_fullname{
             background-color: rgb(188, 192, 192);
-            padding: 10px;
+            padding: 5px;
             border-radius: 30px;  
         }
-        #id_username:hover{
+        #id_fullname:hover{
             background-color: rgb(252, 249, 249);
         }
-        #id_password{
+        #id_email{
             background-color: rgb(188, 192, 192);
             padding: 10px;
             border-radius: 30px;
             
         }
-        #id_password:hover{
+        #id_email:hover{
+            background-color: rgb(252, 249, 249);
+        }
+        #id_phone{
+            background-color: rgb(188, 192, 192);
+            padding: 10px;
+            border-radius: 30px;  
+        }
+        #id_phone:hover{
+            background-color: rgb(252, 249, 249);
+        }
+        #id_comment{
+            background-color: rgb(188, 192, 192);
+            height: 150px;
+            padding: 10px;
+            border-radius: 30px;  
+        }
+        #id_comment:hover{
             background-color: rgb(252, 249, 249);
         }
     </style>
 </head>
 
 
-<div style="border-radius: 50px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" class="container pt-3 pb-3  mt-4 mb-4">
-    <h3 class="text-center">Login</h3>
+<div style="border-radius: 50px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" class="container pt-3 pb-3 bg-dark-subtle mt-4 mb-4">
+    <h3 class="text-center">Contact</h3>
     <hr>
     <div class="row d-flex justify-content-center align-items-center mt-2">
         <div class="col-md-7 col-sm-12">
-            <img style="" class="img-fluid " src="{% static 'login.jpg' %}" alt="Register">
+            <img style="mix-blend-mode: color-burn;" class="img-fluid " src="{% static 'contact.webp' %}" alt="Register">
           </div>
           <div class="col-md-5 col-sm-12">
             <div style=" margin: auto;">
@@ -57,13 +73,15 @@
                   
                     {% endfor %}
                     <br>
-                    <button style="width: 100%; padding: 10px; border-radius: 30px;" type="submit" class="btn btn-primary">Login</button>
+                    <button style="width: 100%; padding: 10px; border-radius: 30px;" type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
             
         
-        </div>
+          </div>
     </div>
+    
+    
 </div>
 
 

@@ -11,3 +11,12 @@ class ApplicantModel(models.Model):
         return f"{self.user.first_name} {self.user.last_name}"
 
 
+class ContactModel(models.Model):
+    fullname = models.CharField(max_length=100)
+    email = models.EmailField(max_length=100)
+    phone = models.IntegerField()
+    comment = models.TextField()
+
+    def __str__(self):
+        return self.fullname
+    

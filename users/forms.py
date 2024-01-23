@@ -2,7 +2,7 @@
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
-from .models import ApplicantModel
+from .models import ApplicantModel, ContactModel
 
 class RegisterForm(UserCreationForm):
     
@@ -32,3 +32,7 @@ class RegisterForm(UserCreationForm):
         return user
 
 
+class ContactForm(forms.ModelForm):
+    class Meta:
+        model = ContactModel
+        fields = '__all__'

@@ -125,3 +125,38 @@ def profileview(request, username):
     print(applicant.mobile_no)
     return render(request, 'profile.html', {'data': applicant, 'application' : selected_applications})
 
+@login_required
+def Tutionhistory(request, username):
+    applicant = get_object_or_404(ApplicantModel, user=request.user)
+    
+    selected_applications = ApplicationModel.objects.filter(applicant=applicant, appaly_status='Selected')
+    user = get_object_or_404(User, username=username)
+    
+    applicant = get_object_or_404(ApplicantModel, user=user)
+    print(applicant.mobile_no)
+    return render(request, 'tution_history.html', {'data': applicant, 'application' : selected_applications})
+
+
+from .models import ContactModel
+from .forms import ContactForm
+class Contactview(CreateView):
+    model = ContactModel
+    form_class = ContactForm
+    template_name = 'contact.html'
+
+    success_url = reverse_lazy('home')
+
+from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
+from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
+def password_change(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.user, data=request.POST)
+        if form.is_valid():
+            form.save()
+            update_session_auth_hash(request, form.user)
+            messages.success(request, 'password update successfully')
+            return redirect('home')
+        
+    else:
+        form = PasswordChangeForm(user=request.user)
+    return render(request, 'pass_change.html', {'form': form})

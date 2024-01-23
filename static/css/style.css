@@ -1,11 +1,11 @@
-
+/* 
 .link_cont {
    
     height: 10vh;
     display: flex;
     margin-bottom: 50px;
-    /* justify-content: center; */
-    /* align-items: center; */
+    justify-content: center;
+    align-items: center;
 
 }
 
@@ -38,4 +38,49 @@ a:hover i {
 }
 .linkedin:hover {
     color: #04009a;
+} */
+
+
+/* footer */
+
+.footer_area{
+    background: #263238;
+}
+div {
+    display: block;
+}
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.single_footer ul li a, .single_footer ul li {
+    color: #999;
+    text-decoration: none;
+}
+.single_footer ul li a:hover{
+    color: red;
+}
+#Life:hover{
+    color: red;
+}
+#Life{
+    color:  #999999;
+}
+.footer_top {
+    padding: 80px 0 77px;
+    border-bottom: 1px solid #ddd;
+}
+.copyright_area {
+    padding: 30px 0;
+}
+.single_footer h3 {
+    font-size: 16px;
+    text-transform: capitalize;
+    font-weight: 600;
+    line-height: 12px;
+    margin-bottom: 25px;
+    color: #fff;
 }

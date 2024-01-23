@@ -45,4 +45,16 @@ class ReviewModel(models.Model):
         return f"{self.reviewer.user.first_name} to {self.tution.subject}"
     
 
+class TeacherModel(models.Model):
+    code = models.IntegerField()
+    fullname = models.CharField(max_length=100)
+    university = models.CharField(max_length=150)
+    sub = models.CharField(max_length=150)
+    ex_location = models.CharField(max_length=150)
+    ex_class= models.CharField(max_length=150)
+    living_place = models.CharField(max_length=150)
+    ex_salary = models.IntegerField()
+
+    def __str__(self):
+        return self.fullname
     

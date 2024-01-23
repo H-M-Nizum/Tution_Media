@@ -23,6 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.homeview.as_view(), name='home'),
     path('about/', views.Aboutview.as_view(), name='about'),
+    path('service/', views.serviceview.as_view(), name='service'),
+    
     path('user/', include('users.urls')),
     path('tution/', include('tution.urls')),
     path('apply/', include('apply_tution.urls'))
