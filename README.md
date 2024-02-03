@@ -3,6 +3,7 @@
 Tuition Media Platform is an online platform system, where users can search and apply for different tuition. The platform should have 2 types of users: admins and users. 
 Admin can add and delete tutions. Users can choose and apply for tuition.
 
+[Live_link](https://lifetech-tution.onrender.com/)
 
 ## User: 
 User Registration, login and Authentication
