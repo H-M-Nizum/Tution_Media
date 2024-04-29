@@ -136,6 +136,17 @@ def Tutionhistory(request, username):
     print(applicant.mobile_no)
     return render(request, 'tution_history.html', {'data': applicant, 'application' : selected_applications})
 
+@login_required
+def allTutionhistory(request, username):
+    applicant = get_object_or_404(ApplicantModel, user=request.user)
+    
+    selected_applications = ApplicationModel.objects.filter(applicant=applicant)
+    user = get_object_or_404(User, username=username)
+    
+    applicant = get_object_or_404(ApplicantModel, user=user)
+    print(applicant.mobile_no)
+    return render(request, 'all_tution_history.html', {'data': applicant, 'application' : selected_applications})
+
 
 from .models import ContactModel
 from .forms import ContactForm

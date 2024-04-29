@@ -110,9 +110,13 @@
                   </li>
                  
                   <li class="nav-item">
-                    <a class="nav-link active text-white hvr-underline-from-left" aria-current="page" href="{% url 'contact' %}">Contact_us</a>
+                    <a class="nav-link active text-white hvr-underline-from-left" aria-current="page" href="{% url 'contact' %}">Contact Us</a>
                   </li>
-                 
+
+                  <li class="nav-item">
+                    <a class="nav-link active text-white hvr-underline-from-left"  aria-current="page" href="{% url 'add_tution' %}">Apply For Teacher</a>
+                  </li>                  
+                  
                   {% if request.user.is_authenticated %}
                   <li class="nav-item">
                     <a class="nav-link active text-white hvr-underline-from-left"  aria-current="page" href="{% url 'seeTution' %}">Tution</a>
@@ -141,7 +145,8 @@
                       </a>
                       <ul class="dropdown-menu">
                         <li><a class="dropdown-item text-danger" href="{% url 'profile' user.username %}">Profile</a></li>
-                        <li><a class="dropdown-item" href="{% url 'history' user.username %}">Tution History</a></li>
+                        <li><a class="dropdown-item" href="{% url 'allhistory' user.username %}">All Tution History</a></li>
+                        <li><a class="dropdown-item" href="{% url 'history' user.username %}">Selected Tution History</a></li>
                         <li><a class="dropdown-item" href="{% url 'pass_change' %}">Change password</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item text-danger" href="{% url 'logout' %}"> Logout</a></li>
@@ -225,8 +230,8 @@
                     <div style="color: #999999;" class="single_footer column_3">
                         <h3 style="color: white;">Get in touch</h3> 
                         <ul class="list-unstyled">
-                            <li><i class="fa fa-home mr-2"></i> 125, 1 Tejkunipara Rd, Dhaka 1215.</li> 
-                            <li><i class="fa fa-phone mr-2"></i> (88) 01981251861</li> <li><i class="fa fa-envelope-open-o mr-2"></i><a href="">support@deshtutor.com</a></li>
+                            <li><i class="fa fa-home mr-2"></i>Kushtia, Bangladesh </li> 
+                            <li><i class="fa fa-phone mr-2"></i> (+88) 01981251861</li> <li><i class="fa fa-envelope-open-o mr-2"></i><a href="">hmnizum1714032@gmail.com</a></li>
                         </ul> 
                         <div class="footer-payment">
                             <a href=""><img width="200" src="https://deshtutor.com/storage/img/paymeent.png" alt=""></a>
@@ -239,7 +244,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-12">
                     <div style="color: #999999;" class="copyright_conent">
-                        <p>Copyright © 2019 <a id="Life" href="https://lifetech-tution.onrender.com/">LIfeTech.Com</a>. All Right Reserved.</p>
+                        <p>Copyright © 2024 <a id="Life" href="https://lifetech-tution.onrender.com/">LIfeTech.Com</a>. All Right Reserved.</p>
                     </div>
                 </div> 
                 <div class="col-lg-6 col-md-12">

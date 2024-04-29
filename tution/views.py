@@ -23,7 +23,8 @@ def seeTution(request, class_slug = None):
         data = models.TutionModel.objects.filter(tutionclass = tutionclass)
         
     tutionclass = models.TutionClassModel.objects.all()
-    return render(request, 'seeTution.html', {'data':data, 'tutionclass': tutionclass})
+    # print(data[::-1])
+    return render(request, 'seeTution.html', {'data':data[::-1], 'tutionclass': tutionclass})
 
 def seeTeacher(request):
     data = models.TeacherModel.objects.all()

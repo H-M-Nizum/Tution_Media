@@ -7,7 +7,7 @@
 <div class="bg-body-secondary pb-4">
   <div class="table-responsive">
     {% if application %}
-    <h1 class="text-center p-5">Selected Tution History</h1>
+    <h1 class="text-center p-5"> All Applied Tution History</h1>
     <hr>
       <table class="table table-striped table-hover w-100 bg-body-secondary">
           <thead>
@@ -17,7 +17,7 @@
                   <th scope="col">Subject</th>
                   <th scope="col">Tution Location</th>
                   <th scope="col">Fee</th>
-                  <th scope="col">Action</th>
+                  <th scope="col">Appaly Status</th>
               </tr>
           </thead>
           <tbody>
@@ -28,7 +28,8 @@
                       <td>{{i.tution.subject}}</td>
                       <td>{{i.tution.location}}</td>
                       <td>{{i.tution.fee}}</td>
-                      <td><a class="btn btn-info" href="{% url 'review' i.tution.id %}">Reviews </a></td>
+                      <td>{{i.appaly_status}}</td>
+                      
                   </tr>
               {% endfor %}
           </tbody>
